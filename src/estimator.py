@@ -231,9 +231,9 @@ def initCovidEstimator(data):
   # print('data')
   # print(data)
   # arrayToObjConvertion = dict.fromkeys(data)
-  arrayToObjConvertion = json.loads(str(data))
-  sampleCaseData = arrayToObjConvertion
-  responseJSON['data'] = arrayToObjConvertion
+  arrayToObjConvertion = json.dumps(data)
+  sampleCaseData = json.dumps(arrayToObjConvertion)
+  responseJSON['data'] = json.dumps(arrayToObjConvertion)
   print(responseJSON)
   # compute code challenge -1
   calculateCurrentlyInfected()
