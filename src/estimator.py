@@ -209,6 +209,14 @@ def calculateCostImapctOnEconomy():
         (responseJSON['severeImpact']['infectionsByRequestedTime'] * MAJORITIY_WORKING_POPULATION * DAILY_EARNINGS) / PERIOD_IN_FOCUS)
     responseJSON['severeImpact']['dollarsInFlight'] = saveSeverDollarInFlight
 
+# to Convert a list to dictionary 
+
+def convertoDict(listArray): 
+	it = iter(listArray) 
+	resultDict = dict(zip(it, it)) 
+	return resultDict 
+		
+
 
 def initCovidEstimator(data):
   """ /**
@@ -220,10 +228,10 @@ def initCovidEstimator(data):
  """
 
   # initialize variables
-  print(data)
-  # arrayToObjConvertion = convertArrayToObject(data)
-  sampleCaseData = data
-  responseJSON['data'] = data
+  print('data', data)
+  arrayToObjConvertion = convertoDict(data)
+  sampleCaseData = arrayToObjConvertion
+  responseJSON['data'] = arrayToObjConvertion
 
   # compute code challenge -1
   calculateCurrentlyInfected()
