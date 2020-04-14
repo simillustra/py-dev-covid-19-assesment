@@ -23,7 +23,7 @@ def calculateCurrentlyInfected():
    * @description estimates and saves  the number of currently and severly infected people
    */
    """
-
+    global sampleCaseData, responseJSON
     # update impact
 
     saveCurrentlyInfected = sampleCaseData['reportedCases'] * \
@@ -85,7 +85,7 @@ def calculatePossibleInfectionGrowthRate():
    * @description To estimate the number of infected people 30 days from now,
    */
   """
-
+    global sampleCaseData, responseJSON
     INFECTION_RATE_PER_PERIOD = calculateInfectionRatesPerPeriod(
         sampleCaseData['timeToElapse'], sampleCaseData['periodType'])
     # update impact
@@ -108,7 +108,7 @@ def calculateSevereCases():
    */
 
   """
-
+    global sampleCaseData, responseJSON
     # update impact
     estimatedNormalPositive = responseJSON['impact']['infectionsByRequestedTime'] * \
         PERCENTAGE_POSITIVE_CASES
@@ -130,7 +130,7 @@ def caclulateHospitalBedsAvailability():
    */
 
   """
-
+    global sampleCaseData, responseJSON
     # update impact
     HOSPITAL_BEDS_AVAILABLE = sampleCaseData['totalHospitalBeds'] * \
         PERCENTAGE_HOSPITAL_BED_AVAILABILITY
@@ -152,7 +152,7 @@ def calculationICURequirement():
    * @description This is the estimated number of severe positive cases that will require ICU care.
    */
    """
-
+    global sampleCaseData, responseJSON
     # update impact
     saveNormalCasesNeadingICUCare = math.trunc(
         responseJSON['impact']['infectionsByRequestedTime'] * PERCENTAGE_CASES_NEEDS_FOR_ICU_CARE)
@@ -173,7 +173,7 @@ def calculateVentilatorsRequired():
    */
 
   """
-
+    global sampleCaseData, responseJSON
     # update impact
     saveNormalCasesNeedingVentilators = math.trunc(
         responseJSON['impact']['infectionsByRequestedTime'] * PERCENTAGE_CASES_NEEDS_FOR_VENTILATION)
@@ -194,7 +194,7 @@ def calculateCostImapctOnEconomy():
    * @description estimate how much money the economy is likely to lose over the said period.
    */
   """
-
+    global sampleCaseData, responseJSON
     PERIOD_IN_FOCUS = calculateIAndReturnPeriods(
         sampleCaseData['timeToElapse'], sampleCaseData['periodType'])
     MAJORITIY_WORKING_POPULATION = sampleCaseData['region']['avgDailyIncomePopulation']
@@ -209,14 +209,6 @@ def calculateCostImapctOnEconomy():
         (responseJSON['severeImpact']['infectionsByRequestedTime'] * MAJORITIY_WORKING_POPULATION * DAILY_EARNINGS) / PERIOD_IN_FOCUS)
     responseJSON['severeImpact']['dollarsInFlight'] = saveSeverDollarInFlight
 
-# to Convert a list to dictionary 
-
-def convertoDict(listArray): 
-	it = iter(listArray) 
-	resultDict = dict(zip(it, it)) 
-	return resultDict 
-		
-
 
 def initCovidEstimator(data):
   """ /**
@@ -226,7 +218,7 @@ def initCovidEstimator(data):
  * @description application Entry point.
  */
  """
-
+  global sampleCaseData, responseJSON
   # initialize variables
   # print('data')
   # print(data)
