@@ -228,27 +228,28 @@ def initCovidEstimator(data):
  """
 
   # initialize variables
-  print('data', data)
-  arrayToObjConvertion = convertoDict(data)
-  sampleCaseData = arrayToObjConvertion
-  responseJSON['data'] = arrayToObjConvertion
+  print('data')
+  print(data)
+  # arrayToObjConvertion = convertoDict(data)
+  # sampleCaseData = arrayToObjConvertion
+  # responseJSON['data'] = arrayToObjConvertion
 
-  # compute code challenge -1
-  calculateCurrentlyInfected()
-  calculatePossibleInfectionGrowthRate()
+  # # compute code challenge -1
+  # calculateCurrentlyInfected()
+  # calculatePossibleInfectionGrowthRate()
 
-  # compute code challenge -2
-  calculateSevereCases()
-  caclulateHospitalBedsAvailability()
+  # # compute code challenge -2
+  # calculateSevereCases()
+  # caclulateHospitalBedsAvailability()
 
-  # compute code challenge -3
-  calculationICURequirement()
-  calculateVentilatorsRequired()
-  calculateCostImapctOnEconomy()
+  # # compute code challenge -3
+  # calculationICURequirement()
+  # calculateVentilatorsRequired()
+  # calculateCostImapctOnEconomy()
 
-    # return responses
-    #newRes = object_to_array(responseJSON)
-  return  responseJSON
+  #   # return responses
+  #   #newRes = object_to_array(responseJSON)
+  # return  responseJSON
   
  
 
