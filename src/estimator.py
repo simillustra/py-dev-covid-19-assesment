@@ -228,9 +228,9 @@ def initCovidEstimator(data):
  """
 
   # initialize variables
-  print('data')
-  print(data)
-  arrayToObjConvertion = {k: v for subArray in data for k, *v in subArray}
+  # print('data')
+  # print(data)
+  arrayToObjConvertion = dict.fromkeys(data)
   sampleCaseData = arrayToObjConvertion
   responseJSON['data'] = arrayToObjConvertion
 
