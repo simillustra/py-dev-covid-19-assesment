@@ -26,12 +26,10 @@ def calculateCurrentlyInfected():
     global sampleCaseData, responseJSON
     # update impact
 
-    saveCurrentlyInfected = sampleCaseData['reportedCases'] * \
-        NORMAL_INFECTION_GROWTH_RATE
+    saveCurrentlyInfected = (sampleCaseData['reportedCases'] * NORMAL_INFECTION_GROWTH_RATE)
     responseJSON['impact']['currentlyInfected'] = saveCurrentlyInfected
     # update severeImpact
-    saveSeverelyInfected = sampleCaseData['reportedCases'] * \
-        SEVERE_INFECTION_GROWTH_RATE
+    saveSeverelyInfected = (sampleCaseData['reportedCases'] * SEVERE_INFECTION_GROWTH_RATE)
     responseJSON['severeImpact']['currentlyInfected'] = saveSeverelyInfected
 
 
@@ -223,10 +221,10 @@ def initCovidEstimator(data):
   # print('data')
   # print(data)
   # arrayToObjConvertion = dict.fromkeys(data)
-  arrayToObjConvertion = json.dumps(data)
+  #arrayToObjConvertion = json.dumps(data)
   sampleCaseData = data
   responseJSON['data'] = data
-  print('konfa', responseJSON)
+  #print('konfa', responseJSON)
   # compute code challenge -1
   calculateCurrentlyInfected()
   calculatePossibleInfectionGrowthRate()
@@ -242,7 +240,7 @@ def initCovidEstimator(data):
 
     # return responses
     #newRes = object_to_array(responseJSON)
-  return  json.dumps(responseJSON)
+  return  responseJSON
   
  
 
