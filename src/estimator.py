@@ -230,10 +230,10 @@ def initCovidEstimator(data):
   # initialize variables
   # print('data')
   # print(data)
-  arrayToObjConvertion = dict.fromkeys(data)
-  sampleCaseData = arrayToObjConvertion
-  responseJSON['data'] = arrayToObjConvertion
-
+  # arrayToObjConvertion = dict.fromkeys(data)
+  sampleCaseData = data
+  responseJSON['data'] = data
+  print(responseJSON)
   # compute code challenge -1
   calculateCurrentlyInfected()
   calculatePossibleInfectionGrowthRate()
